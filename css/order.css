@@ -1,0 +1,100 @@
+@import url(common.css);
+
+.container{
+	color: #000;
+}
+
+.deliv-info li{
+	font-size: 75%;
+	color: red;
+}
+.cart{
+	position: relative;
+}
+.collapseGroup{
+	display: inline-block;
+	padding: 5px;
+	margin: 5px 5px 5px 0;
+	width: 100%;
+}
+.collapseGroup > *{
+	margin: 2px 3px;
+}
+.collapseGroup > .btn{
+	float: right;
+}
+.collapseGroup, .collapseGroup > h3, 
+.collapseGroup > label, .collapseGroup > p, 
+.collapseGroup > button{
+	display: inline-block;
+}
+.menu-items .panel-body{
+	text-align: left;
+	padding: 5px 15px;
+}
+.menu-items{
+	padding: 5px 0;
+}
+.order-type{
+	border: 1px solid #CCC;
+	border-radius: 4px;
+	background-color: #EEE;
+	padding-top: 0px;
+	margin: 0;
+}
+.collapseGroup > label, .collapseGroup p{
+	font-size: 75%;
+}
+.collapseGroup > h3{
+	text-shadow: none;
+}
+.disable{
+	display: none;
+}
+.deliv-info > ul{
+	margin-top: 10px;
+}
+.panel-title a:hover, .panel-title a:focus{
+	font-weight: bold;
+	text-decoration: none;
+	color: #000;
+}
+.cart{
+	padding: 0px;
+}
+.cart > .panel-heading{
+	font-size: 125%;
+    font-weight: bold;
+    text-shadow: none;
+}
+.cartfooter{
+	position: relative;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #F5F5F5;
+}
+.choices{
+	padding-left: 0;
+}
+.delete{
+	padding: 0 4px 2px;
+	color: red;
+	font-weight: bold;
+}
+.item>p, .item>button{
+	display: inline-block;
+}
+.item > p{
+	margin-right: 5px;
+}
+.item{
+	display: block;
+	text-align: left;
+}
+.duplicates{
+	margin-right: 10px;
+}
+.totals{
+	padding: 5px 0;
+}

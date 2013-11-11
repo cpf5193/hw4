@@ -1,0 +1,47 @@
+@import url(common.css);
+
+.row .col-sm-4{
+	text-align: center;
+}
+.attention{
+	width: 80%;
+	border: 5px solid #FFF;
+	box-shadow: 2px 2px 6px #444;
+	margin: 30px auto 0px auto;
+	padding: 10px;
+}
+.menu-item{
+	display: inline-block;
+	margin: 10px;
+	color: #FFF;
+	vertical-align: top;
+	max-width: 320px;
+	min-width: 150px;
+}
+
+div > div > h2{
+	font-size: 150%;
+	font-weight: bold; 
+	margin: 20px auto 10px auto;
+	color: #FFF; 
+}
+.menu-item dt{
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+.disable{
+ 	display: none;
+}
+.descr{
+	margin-bottom: 5px;
+}
+.price{
+	font-style: italic;
+	font-size: 75%;
+}
+.drinks, .desserts{
+	display: inline-block;
+}
+.desserts{
+	margin-bottom: 20px;
+}

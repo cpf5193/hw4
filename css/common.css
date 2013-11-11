@@ -1,0 +1,175 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700);
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+@import url(reset.css);
+
+html{
+	height: 100%;
+}
+body {
+    background-color: #45157D;
+    background-repeat: repeat;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    height: 100%;
+}
+.header{
+	position: fixed;
+	background-color: #000;
+	width: 100%;
+	z-index: 50;
+	top: 0px;
+	left: 0px;
+}
+.footer{
+    background-color: #555;
+    color: #FFF;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    min-width: 250px;
+    bottom: 0;
+}
+
+.navbar-default .navbar-nav > li > a, .navbar-default{
+	color: #FFF;
+}
+a.active, .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
+	background-color: #606060;
+	color: #FFF;
+}
+.navbar{
+	background-color: #000;
+	color: #FFF;
+	z-index: 1;
+	margin-bottom: 0px;
+	border: none;
+	border-radius: 0;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+.navbar-nav {
+    margin: 0;
+}
+.nav-pills img{
+	float: right;
+}
+.navbar-menu{
+ 	padding: 0px;
+ 	overflow: hidden;
+}
+button.navbar-toggle{
+ 	position: absolute;
+ 	left: 15px;
+}
+a:focus {
+    outline: 2px dotted white;
+} 
+.hidetop{
+	height: 50px;
+}
+.hidebottom{
+	height: 44px;
+}
+.logo{
+	position: fixed;
+	right: 5px;
+	top: 0;
+	color: #FFF;
+	font-family: 'Lobster', cursive;
+	font-size: 48px;
+	z-index: 51;
+}
+.logo:hover, .logo:focus{
+	text-decoration: none;
+	color: #7925DB;
+}
+@media(max-width: 150px){
+	.logo{
+		display: none;
+	}
+}
+a, a:hover{
+	color: yellow;
+}
+h1, h2, h3{
+	text-shadow: 2px 2px 2px #000;
+}
+@media(min-width: 177px){
+	.hidebottom{
+		height: 166px;
+	}
+}
+@media(max-width: 280px){
+	body{
+		width: 280px;
+	}
+}
+.content{
+	width: 80%;
+	margin: auto;
+	text-align: center;
+	color: #FFF;
+}
+.title{
+	font-size: 300%;
+	font-weight: bold;
+	border-bottom: 3px solid white;
+	padding: 20px 0;
+	margin-bottom: 20px;
+}
+
+.footerRow{
+	width: 85%;
+	margin: auto;
+}
+
+.footer > .footerRow > .footerCol, 
+.footer > .footerRow > .footerCol > p{
+	text-align: left;
+}
+
+.footerCol > h2{
+    border-bottom: 2px solid #FFF;
+    font-size: 140%;
+    font-weight: bold;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    text-decoration: none;
+}
+
+.footer p{
+    font-size: 75%;
+    margin: 0 auto;
+    padding: 2px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.footer a{
+	color: yellow;
+}
+
+.smallfoot{
+	display: none;
+}
+
+@media(max-width: 768px){
+	.smallfoot{
+		display: block;
+	}
+	.largefoot{
+		display: none;
+	}
+	.footerCol p{
+		padding: 1px 0;
+	}
+	.footerCol h2{
+		font-size: 120%;
+	    font-weight: bold;
+	    margin-bottom: 2px;
+	    margin-top: 3px;
+	    padding-bottom: 2px;
+	}
+}

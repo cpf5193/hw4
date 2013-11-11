@@ -1,0 +1,56 @@
+@import url(common.css);
+
+.jumbotron {
+    background: none;
+    color: #FFFFFF;
+    text-align: center;
+    background-size: 100% 100%;
+    margin-bottom: 0
+}
+
+.jumbotron h1{
+	font-size: 500%;
+}
+
+.jumbotron h3{
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+.bigpanel{
+	background-size: 100% 100%;
+	padding-bottom: 20px;
+	text-align: center;
+	min-width: 550px;
+}
+.bigtitle{
+	color: #FFF;
+	font-size: 500%;
+	padding: 30px 0;
+	font-family: 'Lobster', cursive;
+}
+.paneldesc{
+	color: #FFF;
+	font-size: 150%;
+	line-height: 40px;
+	margin-bottom: 20px;
+}
+
+@media(max-width: 567px){
+	.jumbotron h1{
+		font-size: 300%;
+	}
+}
+
+@media(max-width: 393px){
+	.jumbotron h1{
+		font-size: 300%;
+	}	
+	.bigtitle{
+		padding: 20px 0;
+	}
+	.paneldesc{
+		font-size: 120%;
+    	line-height: 30px;
+	}
+}

@@ -1,0 +1,71 @@
+@import url(common.css);
+
+img.hiring{
+	border: none;
+	margin-bottom: 0px;
+}
+.hire-img{
+	clear: left;
+	float: left;
+}
+.position{
+	overflow: hidden;
+	margin-bottom: 20px;
+	text-align: left;
+}
+.carousel-inner>.item>img, .carousel-inner>.item>a>img{
+	display: inline-block;
+	margin-bottom: 120px;
+}
+@media(max-width: 400px){
+	.carousel-inner>.item>img, 
+	.carousel-inner>.item>a>img{
+		margin-bottom: 150px;
+	}
+}
+@media(max-width: 348px){
+	.carousel-inner>.item>img, 
+	.carousel-inner>.item>a>img{
+		margin-bottom: 180px;
+	}
+}
+.carousel{
+	margin: 20px auto;
+	width: 80%;
+}
+.carousel-caption{
+	margin-bottom: 30px;
+	padding-bottom: 0;
+}
+.carousel-caption > h3{
+	font-size: 120%;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+.carousel-control.right{
+  background-image: -webkit-gradient(linear, 0% top, 100% top, from(rgba(256,256,256,0.0001)), to(rgba(256,256,256,0.5)));
+  background-image: -webkit-linear-gradient(left, color-stop(rgba(256,256,256,0.0001) 0%), color-stop(rgba(256,256,256,0.5) 100%));
+  background-image: -moz-linear-gradient(left, rgba(256,256,256,0.0001) 0%, rgba(256,256,256,0.5) 100%);
+  background-image: linear-gradient(to right, rgba(256,256,256,0.0001) 0%, rgba(256,256,256,0.5) 100%);
+}
+.carousel-control.left{
+  background-image: -webkit-gradient(linear, 0% top, 100% top, from(rgba(256,256,256,0.5)), to(rgba(256,256,256,0.0001)));
+  background-image: -webkit-linear-gradient(left, color-stop(rgba(256,256,256,0.5) 0%), color-stop(rgba(256,256,256,0.0001) 100%));
+  background-image: -moz-linear-gradient(left, rgba(256,256,256,0.5) 0%, rgba(256,256,256,0.0001) 100%);
+  background-image: linear-gradient(to right, rgba(256,256,256,0.5) 0%, rgba(256,256,256,0.0001) 100%);
+}
+.open-title{
+	display: inline-block;
+}
+.open-title h1{
+	text-decoration: underline;
+	font-size: 150%;
+	font-weight: bold;
+	margin-right: 10px;
+	display: inline-block;
+	vertical-align: 50%;
+	color: #FFF;
+}
+.jobs-contact{
+	margin-bottom: 30px;
+}
