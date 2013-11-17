@@ -17,7 +17,8 @@ printNavbarEnd();
 		<h1 class='bigtitle'>Dawg Pizza</h1>
 		<h2 class='paneldesc'>Awesome wood-fired pizza with fresh ingredients baked to order
 		</h2>
-		<a href='menu.shtml' class="btn btn-primary">Menu</a>	
+		<a href='menu.php' class="btn btn-primary to-menu">Menu</a>	
+		<a href="order.php" class='btn btn-primary to-order'>Order</a>
 		<h3>Call to Order: 206-555-1212</h3>
 	</div>
 <?php printFooter(); ?>

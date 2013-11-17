@@ -74,12 +74,17 @@
 	right: 0;
 	background-color: #F5F5F5;
 }
+.agreement > p{
+	display: inline-block;
+	vertical-align: 33%;
+	font-size: 75%;
+}
 .choices{
 	padding-left: 0;
 }
 .delete{
-	padding: 0 4px 2px;
-	color: red;
+	padding: 0px 5px;
+	color: #FFF;
 	font-weight: bold;
 }
 .item>p, .item>button{
@@ -92,9 +97,29 @@
 	display: block;
 	text-align: left;
 }
-.duplicates{
+.dupHolder{
 	margin-right: 10px;
 }
 .totals{
 	padding: 5px 0;
+}
+.min-order{
+	text-shadow: none;
+	color: red;
+}
+.helpOrder ul{
+	font-size: 80%;
+}
+.helpOrder li{
+	font-size: 90%;
+	color: red;
+	list-style-type: disc;
+}
+.itemPrice{
+	display: inline-block;
+}
+@media(max-width: 350px){
+	.content{
+		min-width: 260px;
+	}
 }

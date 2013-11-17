@@ -21,12 +21,14 @@ printNavbarEnd();
 		<div class='row panel panel-default'>
 			<div class='choices col-sm-7 panel'>
 				<div class='order-type panel-heading'>
+					<label>Pick Up <input type='radio' name='ordertype' value='pickup'></label>
+					<label>Delivery<input type='radio' name='ordertype' value='delivery' checked></label>
 					<div class='deliv-info'>
 						<ul>
 							<li>Delivery Hours: 12pm - 11pm</li>
 							<li>We deliver only within Seattle city limits</li>
 							<li>Cash and credit cards accepted for delivery</li>
-							<li>No topping substitutions on delivery</li>
+							<li>No topping substitutions for online orders</li>
 							<li>Delivery is free of charge ($20 min. order)</li>
 						</ul>
 					</div>
@@ -62,7 +64,7 @@ printNavbarEnd();
 				      	      </select>
 				      	    </label>
 				      	    <p>Price: $<span class='price'>0.00</span></p>
-				      	    <button class='btn btn-primary'>Add</button>
+				      	    <button class='btn btn-primary add-to-cart'>Add</button>
 				      	  </li>
 				      	</ul>
 				      </div>
@@ -91,7 +93,7 @@ printNavbarEnd();
 				      	      </select>
 				      	    </label>
 				      	    <p>Price: $<span class='price'>0.00</span></p>
-				      	    <button class='btn btn-primary'>Add</button>
+				      	    <button class='btn btn-primary add-to-cart'>Add</button>
 				      	  </li>
 				      	</ul>
 				      </div>
@@ -120,7 +122,7 @@ printNavbarEnd();
 				      	      </select>
 				      	    </label>
 				      	    <p>Price: $<span class='price'>0.00</span></p>
-				      	    <button class='btn btn-primary'>Add</button>
+				      	    <button class='btn btn-primary add-to-cart'>Add</button>
 				      	  </li>
 				      	</ul>
 				      </div>
@@ -134,7 +136,17 @@ printNavbarEnd();
 				<div class='panel-body'>
 					<div class='items'>
 						<ul class='itemList'>
-
+							<li class='itemTemplate'>
+								<span class='size'></span>
+								<p class='itemName'></p>
+								<p class='dupHolder'>
+									x<span class='duplicates'></span>
+								</p>
+								<p class='priceHolder'>
+									$<span class='itemPrice'></span>
+								</p>
+								<button class='btn btn-danger delete'>x</button>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -144,16 +156,64 @@ printNavbarEnd();
 						<p>Tax(9.5%): $<span class='tax'>0.00</span></p>
 						<p>Total: $<span class='total'>0.00</span></p>
 					</div>
+					<div class='agreement'>
+						<p>I agree to pay the total amount upon delivery or pickup</p>
+						<input type='checkbox'>
+					</div>
 					<div class='buttons'>
 						<button class='btn btn-primary'>Place Order</button>
 						<button class='btn btn-danger'>Remove All</button>
 					</div>
+					<div class='helpOrder'>
+						<ul> If you cannot click 'Place Order', you may:
+							<li>Not be ordering within valid hours</li>
+							<li>Not have clicked the 'I agree' checkbox</li>
+							<li>Not have a order over $20 for delivery</li>
+						</ul>
+					</div>
+					<form class='userInfo' action='https://dawgpizza.com/orders/' method='post'>
+						<label>Name: <input type='text' name='name' required focus></label>
+						<label>Address 1: <input type='text' name='add1' required></label>
+						<label>Address 2: <input type='text' name='add2'></label>
+						<label>Zipcode: <input type='text' name='zipcode' size='5' required></label>
+						<label>Phone: <input type='text' name='phone' required></label>
+						<input type="hidden" name="cart">
+						<input class='submit' type='submit' value='Place Order'>
+					</form>
 				</div>
 			</div> <!--cart-->
 		</div> <!--row-->
+
+		<div class="modal fade" id="order-complete" tabindex="-1" role="dialog" aria-labelledby="orderCompleteLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title" id="modalLabel">Order Successfully Completed</h4>
+		      </div>
+		      <div class="modal-body">
+		        Your order has been completed. Thank you for choosing Dawg Pizza! Click okay to return to the homepage. 
+		      </div>
+		      <div class="modal-footer">
+		        <button class='btn btn-primary return-home' type="button" class="btn btn-default" data-dismiss="modal">Okay</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->	
+
 	</div>	<!--container-->
 </div> <!--content-->
 
 <?php printFooter(); ?>
-<script type="text/javascript" src="js/order.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/eventSource.js"></script>
+<!-- <script type="text/javascript" src="js/cartModel.js"></script> -->
+<!-- <script type="text/javascript" src="js/cartView.js"></script> -->
+<!-- <script type="text/javascript" src="js/newItemView.js"></script> -->
+<script type="text/javascript" src="js/listItemModel.js"></script>
+<script type="text/javascript" src="js/listItemView.js"></script>
+<script type="text/javascript" src="js/listModel.js"></script>
+<script type="text/javascript" src="js/listView.js"></script>
+<script type="text/javascript" src="js/controller.js"></script>
+<!-- <script type="text/javascript" src="js/order.js"></script> -->
 <?php endhtml();?> 
