@@ -1,10 +1,4 @@
 $(function(){
-	// var cartModel = createCartModel();
-	// var cartView = createCartView({
-	// 	model: cartModel,
-	// 	template: $('.itemTemplate'),
-	// 	container: $('.itemList')
-	// });
 
 	var pizzaListModel = createListModel({
 		items: com.dawgpizza.menu.pizzas
@@ -30,27 +24,36 @@ $(function(){
 		model: dessertListModel
 	});
 
-	// var newItemView = createNewItemView({
-	// 	model: cartModel
-	// });
+	var cartModel = createCartModel();
+	
+	var cartView = createCartView({
+		model: cartModel,
+		template: $('.itemTemplate'),
+		container: $('.itemList')
+	});
 
-	// var listView = createListView({
-	// 	model: cartModel
-	// });
+	pizzaListView.on('addToCart', function(data){
+		console.log(data);
+		//DO SOMETHING WITH CART MODEL
 
-	// $('.add-to-cart').click(function(){
-	// 	var menuItem = $(this).parent();
-	// 	var size;
-	// 		if(menuItem.find('.size')){
-	// 			size = menuItem.find('.size').val();
-	// 		} else {size = undefined};
-	// 	var toAdd = {
-	// 		type: menuItem.attr('type'),
-	// 		size: size,
-	// 		name: menuItem.find('.name').html(),
-	// 		quantity: menuItem.find('.quantity').val(),
-	// 		price: menuItem.find('.price').html()
-	// 	}
-	// 	cartModel.addItem(toAdd);
-	// });
+		// var menuItem = $(this).parent();
+		// var size = menuItem.find('.size');
+		// if(size){
+		// 	size = size.val();
+		// } else {size = undefined};
+		// var toAdd = {
+		// 	type: menuItem.attr('type'),
+		// 	size: size,
+		// 	name: menuItem.find('.name').html(),
+		// 	quantity: menuItem.find('.quantity').val(),
+		// 	price: menuItem.find('.price').html()
+		// }
+		// cartModel.addItem(toAdd);
+	});
+
+	//DO FOR EACH OF PIZZA< DRINKS< AND RESTAURANTS
 });
+
+function addToCart(){
+
+}

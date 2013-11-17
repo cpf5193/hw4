@@ -22,9 +22,7 @@ var ListItemView = {
 				that.model.updateSize(size.val());
 			});
 		}
-		console.log('updating: ' + this.model.totalPrice);
 		price.html(this.model.totalPrice);
-		console.log(price.html());
 		name.html(this.model.name);
 		var incumbentChild = $(container.children()[index]);
 		if(!firstRender){
@@ -34,6 +32,9 @@ var ListItemView = {
 		else{
 			container.append(clonedTemplate);
 		}
+		clonedTemplate.find('.add-to-cart').click(function(){
+			that.trigger('addToCart', that.model);
+		});
 	}
 };
 
@@ -44,7 +45,7 @@ function createListItemView(config){
 	view.model.on('change', function(){
 		view.render(false);
 	}, view);
-	return view;
+	return makeEventSource(view);
 }
 
 /*

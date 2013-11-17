@@ -1,6 +1,12 @@
 var List = {
 	getItems: function(){
 		return this.items;
+	},
+	setItems: function(items){
+		this.items = items;
+	},
+	getItem: function(index){
+		return this.items[index];
 	}
 };
 

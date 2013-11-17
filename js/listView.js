@@ -5,7 +5,8 @@ var ListView = {
 			modelConfig = {},
 		 	viewConfig = {},
 		 	type, 
-		 	listItem, 
+		 	listItem,
+		 	that = this,
 		 	container = this.container;
 
 		for(var i=0; i<items.length; ++i){
@@ -30,6 +31,9 @@ var ListView = {
 			viewConfig.template = container.find('.collapseGroup.disable');
 			listItem = createListItemView(viewConfig);
 			listItem.render(true);
+			listItem.on('addToCart', function(data){
+				that.trigger('addToCart', data);
+			});
 		}
 	}
 };
@@ -40,5 +44,5 @@ function createListView(config){
 	apply(config, view);
 	if(view.model)
 		view.render();
-	return view;
+	return makeEventSource(view);
 }

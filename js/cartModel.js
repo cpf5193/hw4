@@ -21,7 +21,6 @@ var Items = {
 			this.items.push(item);
 		}
 		updateCart(this.cart.total + item.totalPrice);
-		this.trigger('change');
 	},
 
 	removeItem: function(item){
@@ -30,19 +29,18 @@ var Items = {
 			this.items = this.items.splice(itemIndex, 1);
 		}
 		updateCart(this.cart.total - item.totalPrice);
-		this.trigger('change');
 	},
 
 	updateCart: function(subtotal){
 		this.cart.subtotal = subtotal;
 		this.cart.tax = subtotal * 0.095;
 		this.cart.total = subtotal * 1.095;
+		this.trigger('change');
 	},
 
 	removeAll: function(){
 		this.items = [];
 		updateCart(0);
-		this.trigger('change');
 	},
 
 	toJSON: function(){
@@ -51,7 +49,7 @@ var Items = {
 
 }; //All items available to add to cart
 
-function createCartModel(config){
+function createCartModel(){
 	var itemList = Object.create(Items);
 	var cart = {
 		subtotal: 0,

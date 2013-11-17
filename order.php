@@ -207,9 +207,9 @@ printNavbarEnd();
 <?php printFooter(); ?>
 <script type="text/javascript" src="js/utils.js"></script>
 <script type="text/javascript" src="js/eventSource.js"></script>
-<!-- <script type="text/javascript" src="js/cartModel.js"></script> -->
-<!-- <script type="text/javascript" src="js/cartView.js"></script> -->
-<!-- <script type="text/javascript" src="js/newItemView.js"></script> -->
+<script type="text/javascript" src="js/cartModel.js"></script>
+<script type="text/javascript" src="js/cartView.js"></script>
+<script type="text/javascript" src="js/newItemView.js"></script>
 <script type="text/javascript" src="js/listItemModel.js"></script>
 <script type="text/javascript" src="js/listItemView.js"></script>
 <script type="text/javascript" src="js/listModel.js"></script>
