@@ -26,9 +26,9 @@ var CartView = {
 			qty.html(item.quantity);
 			price.html(item.totalPrice.toFixed(2));
 			
-			// delBtn.click(function(event){
-			// 	event.data.model.removeItem()
-			// });
+			delBtn.click(function(event){
+				event.data.model.removeItem()
+			});
 			this.container.append(clonedTemplate);
 		} //for each item
 		var subtotal, tax, total;

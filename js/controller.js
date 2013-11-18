@@ -33,27 +33,17 @@ $(function(){
 	});
 
 	pizzaListView.on('addToCart', function(data){
-		console.log(data);
-		//DO SOMETHING WITH CART MODEL
-
-		// var menuItem = $(this).parent();
-		// var size = menuItem.find('.size');
-		// if(size){
-		// 	size = size.val();
-		// } else {size = undefined};
-		// var toAdd = {
-		// 	type: menuItem.attr('type'),
-		// 	size: size,
-		// 	name: menuItem.find('.name').html(),
-		// 	quantity: menuItem.find('.quantity').val(),
-		// 	price: menuItem.find('.price').html()
-		// }
-		// cartModel.addItem(toAdd);
+		cartModel.addItem(data);
 	});
+	drinkListView.on('addToCart', function(data){
+		cartModel.addItem(data);
+	});
+	dessertListView.on('addToCart', function(data){
+		cartModel.addItem(data);
+	});
+	$('.buttons > .btn-danger').click(function(){
+		cartModel.removeAll();
+	})
 
 	//DO FOR EACH OF PIZZA< DRINKS< AND RESTAURANTS
 });
-
-function addToCart(){
-
-}

@@ -3,7 +3,8 @@ var Items = {
 		return this.items;
 	},
 
-	addItem: function(item){
+	addItem: function(itemToClone){
+		var item = cloneItem(itemToClone);
 		var foundDuplicate = false;
 		var current, isPizza;
 		for(var i=0; i<this.items.length; ++i){
@@ -20,7 +21,7 @@ var Items = {
 		if(!foundDuplicate){ //new item; add to list
 			this.items.push(item);
 		}
-		updateCart(this.cart.total + item.totalPrice);
+		this.updateCart();
 	},
 
 	removeItem: function(item){
@@ -28,10 +29,14 @@ var Items = {
 		if(itemIndex>-1){
 			this.items = this.items.splice(itemIndex, 1);
 		}
-		updateCart(this.cart.total - item.totalPrice);
+		this.updateCart();
 	},
 
-	updateCart: function(subtotal){
+	updateCart: function(){
+		var subtotal = 0;
+		for(var i=0; i<this.items.length; ++i){
+			subtotal += this.items[i].totalPrice;
+		}
 		this.cart.subtotal = subtotal;
 		this.cart.tax = subtotal * 0.095;
 		this.cart.total = subtotal * 1.095;
@@ -40,7 +45,8 @@ var Items = {
 
 	removeAll: function(){
 		this.items = [];
-		updateCart(0);
+		this.updateCart(0);
+		this.trigger('change');
 	},
 
 	toJSON: function(){
@@ -59,4 +65,18 @@ function createCartModel(){
 	itemList.cart = itemList.cart || cart;
 	itemList.items = itemList.items || [];
 	return makeEventSource(itemList);
+}
+
+function cloneItem(item){
+	var clone = {
+		index: item.index,
+		name: item.name,
+		price: item.price,
+		prices: item.prices,
+		quantity: item.quantity,
+		size: item.size,
+		totalPrice: item.totalPrice,
+		type: item.type
+	};
+	return clone;
 }

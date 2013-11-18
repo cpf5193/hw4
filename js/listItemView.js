@@ -14,7 +14,7 @@ var ListItemView = {
 		name.html(this.model.name);
 		qty.val(this.model.quantity);
 		qty.change(function(){
-			that.model.updateQty(qty.val());
+			that.model.updateQty(parseInt(qty.val()));
 		});
 		if(size){
 			size.val(this.model.size);
