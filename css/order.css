@@ -74,6 +74,9 @@
 	right: 0;
 	background-color: #F5F5F5;
 }
+.agreement {
+    margin: 10px 0;
+}
 .agreement > p{
 	display: inline-block;
 	vertical-align: 33%;
@@ -103,20 +106,27 @@
 .totals{
 	padding: 5px 0;
 }
+.totals > p{
+	margin: 2px 0;
+}
 .min-order{
-	text-shadow: none;
-	color: red;
-}
-.helpOrder ul{
-	font-size: 80%;
-}
-.helpOrder li{
-	font-size: 90%;
-	color: red;
-	list-style-type: disc;
+    color: #FF0000;
+    margin-top: 10px;
+    text-shadow: none;
 }
 .itemPrice{
 	display: inline-block;
+}
+.userInfo{
+	margin: 10px auto;
+}
+.userInfo > label{
+	display: block;
+	text-align: left;
+	margin: 5px;
+}
+.userInfo > label > input{
+	margin-left: 10px;
 }
 @media(max-width: 350px){
 	.content{

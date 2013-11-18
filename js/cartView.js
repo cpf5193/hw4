@@ -3,8 +3,10 @@ var CartView = {
 		var i, item, clonedTemplate;
 		var cart = this.model;
 		var items = cart.getItems();
+		var that = this;
 		var clonedTemplate, size, name, qty, price, delBtn;
 		this.container.empty();
+		var that
 		for(i=0; i<items.length; ++i){
 			item = items[i];
 			clonedTemplate = this.template.clone();
@@ -18,7 +20,7 @@ var CartView = {
 			
 			if(item.size){
 				size.html(item.size);
-			} else{
+			} else {
 				size.remove();
 			}
 
@@ -26,9 +28,12 @@ var CartView = {
 			qty.html(item.quantity);
 			price.html(item.totalPrice.toFixed(2));
 			
-			delBtn.click(function(event){
-				event.data.model.removeItem()
+			(function(item){
+			clonedTemplate.find('.delete').click(function(){
+				that.trigger('removeFromCart', item);
 			});
+			})(items[i]);
+
 			this.container.append(clonedTemplate);
 		} //for each item
 		var subtotal, tax, total;
@@ -51,5 +56,5 @@ function createCartView(config){
 		view.render();
 	});
 
-	return view;
+	return makeEventSource(view);
 }

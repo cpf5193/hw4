@@ -3,6 +3,29 @@ var Items = {
 		return this.items;
 	},
 
+	getItemsSizeStrings: function(){
+		var items = [jQuery.extend(true, {}, this.items)[0]];
+		var item;
+		for(var i=0; i<items.length; ++i){
+			item = items[i];
+			var shortString = item.size;
+			switch(shortString){
+				case 'S':
+					item.size = "small";
+					break;
+				case 'M':
+					item.size = 'medium';
+					break;
+				case 'L':
+					item.size = 'large';
+					break;
+				default:
+					item.size = undefined;
+			}
+		}
+		return items;
+	},
+
 	addItem: function(itemToClone){
 		var item = cloneItem(itemToClone);
 		var foundDuplicate = false;
@@ -24,11 +47,16 @@ var Items = {
 		this.updateCart();
 	},
 
-	removeItem: function(item){
-		var itemIndex = this.items.indexOf(item);
-		if(itemIndex>-1){
-			this.items = this.items.splice(itemIndex, 1);
+	removeItem: function(toRemove){
+		var item;
+		var newItemList = [];
+		for(var i=0; i<this.items.length; ++i){
+			item = this.items[i];
+			if(item != toRemove){
+				newItemList.push(item);
+			}
 		}
+		this.items = newItemList;
 		this.updateCart();
 	},
 
@@ -47,12 +75,7 @@ var Items = {
 		this.items = [];
 		this.updateCart(0);
 		this.trigger('change');
-	},
-
-	toJSON: function(){
-		return JSON.stringify(items);
 	}
-
 }; //All items available to add to cart
 
 function createCartModel(){
