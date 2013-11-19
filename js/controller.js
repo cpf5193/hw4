@@ -24,7 +24,20 @@ $(function(){
 		model: dessertListModel
 	});
 
+	fillFormFromLocal();
+
 	var cartModel = createCartModel();
+	var storedItems = localStorage.getItem('cart');
+	if(storedItems && storedItems.length>0){
+		cartModel.setItems(JSON.parse(storedItems));
+	}
+	if(localStorage.getItem('name')){
+
+	}
+	cartModel.on('change', function(){
+		storedItems = cartModel.getItems();
+		localStorage.setItem('cart', JSON.stringify(storedItems));
+	});
 	
 	var cartView = createCartView({
 		model: cartModel,
@@ -55,17 +68,17 @@ $(function(){
 	$('.userInfo').submit(function(e){
 		e.preventDefault();
 
-		// if(!validTime()){
-		// 	alert('Sorry, we are not currently taking online orders.' + 
-		// 			'We are open for online ordering Monday through Saturday from 12:00 PM to 11:00 PM.');
-		// 	return false;
-		// } else if(!agreed()){
-		// 	alert('Please agree to our terms before you order by clicking the checkbox.');
-		// 	return false;
-		// } else if(!minimumMet()){
-		// 	alert('We must enforce a $20.00 minimum order for delivery. Your current total is less than $20.00.');
-		// 	return false;
-		// }
+		if(!validTime()){
+			alert('Sorry, we are not currently taking online orders.' + 
+					'We are open for online ordering Monday through Saturday from 12:00 PM to 11:00 PM.');
+			return false;
+		} else if(!agreed()){
+			alert('Please agree to our terms before you order by clicking the checkbox.');
+			return false;
+		} else if(!minimumMet()){
+			alert('We must enforce a $20.00 minimum subtotal for delivery. Your current total is less than $20.00.');
+			return false;
+		}
 
 		var choice = confirm("Are you sure you want to place this order? " +  
 				"(note: as this is not a real site we will not actually deliver to you, " + 
@@ -73,7 +86,6 @@ $(function(){
 				"You will be returned to the homepage upon confirmation.");
 		if(choice){
 			var userData = $('.userInfo');
-			console.log(cartModel.getItemsSizeStrings());
 			var sendJSON = {
 				"name": userData.find('input[name="name"]').val(),
 				"address1": userData.find('input[name="add1"]').val(),
@@ -84,13 +96,15 @@ $(function(){
 				"nextCaption": "Return to homepage",
 				"items": cartModel.getItemsSizeStrings()
 			};
-			console.log(cartModel.getItems());
 			$('input[name="cart"]').attr('value', JSON.stringify(sendJSON));
-			alert('going to send now');
+			localStorage.setItem('name', userData.find('input[name="name"]').val());
+			localStorage.setItem('address1', userData.find('input[name="add1"]').val());
+			localStorage.setItem('address2', userData.find('input[name="add2"]').val());
+			localStorage.setItem('zip', userData.find('input[name="zipcode"]').val());
+			localStorage.setItem('phone', userData.find('input[name="phone"]').val());
 			$('.userInfo')[0].submit();
 		} else{
 			e.preventDefault();
-			alert('cancelled');
 			return false;
 		}
 	});
@@ -107,10 +121,35 @@ function validTime(){
 }
 
 function minimumMet(){
-	var total = parseFloat($('.totals .total').html());
-	return total >= 20;
+	var subtotal = parseFloat($('.totals .subtotal').html());
+	return subtotal >= 20;
 }
 
 function agreed(){
 	return $('.agreement > input').is(':checked');
+}
+
+function fillFormFromLocal(){
+	var locStorName = localStorage.getItem('name');
+	var locStorAddress1 = localStorage.getItem('address1');
+	var locStorAddress2 = localStorage.getItem('address2');
+	var locStorZip = localStorage.getItem('zip');
+	var locStorPhone = localStorage.getItem('phone');
+	var inputContainer = $('.userInfo');
+
+	if(locStorName){
+		inputContainer.find('input[name="name"]').val(locStorName);
+	} 
+	if(locStorAddress1){
+		inputContainer.find('input[name="add1"]').val(locStorAddress1);
+	}
+	if(locStorAddress2){
+		inputContainer.find('input[name="add2"]').val(locStorAddress2);
+	}
+	if(locStorZip){
+		inputContainer.find('input[name="zipcode"]').val(locStorZip);
+	}
+	if(locStorPhone){
+		inputContainer.find('input[name="phone"]').val(locStorPhone);
+	}
 }

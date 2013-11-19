@@ -185,5 +185,4 @@ printNavbarEnd();
 <script type="text/javascript" src="js/listModel.js"></script>
 <script type="text/javascript" src="js/listView.js"></script>
 <script type="text/javascript" src="js/controller.js"></script>
-<!-- <script type="text/javascript" src="js/order.js"></script> -->
 <?php endhtml();?> 

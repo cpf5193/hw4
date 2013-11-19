@@ -4,10 +4,14 @@ var Items = {
 	},
 
 	getItemsSizeStrings: function(){
-		var items = [jQuery.extend(true, {}, this.items)[0]];
+		var clone = jQuery.extend(true, {}, this.items);
+		var items = [];
+		for(var i=0; i<this.items.length; ++i){
+			items.push(clone[i]);
+		}
 		var item;
-		for(var i=0; i<items.length; ++i){
-			item = items[i];
+		for(var j=0; j<items.length; ++j){
+			item = items[j];
 			var shortString = item.size;
 			switch(shortString){
 				case 'S':
@@ -24,6 +28,11 @@ var Items = {
 			}
 		}
 		return items;
+	},
+
+	setItems: function(items){
+		this.items = items;
+		this.updateCart();
 	},
 
 	addItem: function(itemToClone){
@@ -75,7 +84,7 @@ var Items = {
 		this.items = [];
 		this.updateCart(0);
 		this.trigger('change');
-	}
+	},
 }; //All items available to add to cart
 
 function createCartModel(){
